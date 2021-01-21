@@ -1,6 +1,8 @@
 const { DataTypes } = require('sequelize');
 const db = require('../../config/database');
 
+const Department = require('./Department');
+
 const School = db.define('Schools', {
     name: {
         type: DataTypes.STRING,
@@ -15,5 +17,7 @@ const School = db.define('Schools', {
         allowNull: false,
     }
 });
+
+School.hasMany(Department);
 
 module.exports = School;
